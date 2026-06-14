@@ -12,8 +12,8 @@ MuJoCo 환경 설정의 시행착오: 작업 경로 오류, MuJoCo환경 설정 
 
 3. 구현 방법-
 bash
-*서버 실행 
+(1)서버 실행 
 python openvla_multicolor_server.py
 
-*MuJoCo 구동 (하얀색 상자 타겟팅)
+(2)MuJoCo 구동 (하얀색 상자 타겟팅)
 python openvla_multicolor_client.py --target_color white
