@@ -1,4 +1,4 @@
-Physical AI RacoonBot 프로젝트
+Physical AI RaccoonBot 프로젝트
 2024405062 로봇학부 이나연
 
 
