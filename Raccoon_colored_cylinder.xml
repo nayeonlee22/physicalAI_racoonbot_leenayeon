@@ -1,0 +1,75 @@
+<mujoco model="Raccoon_S_5cm_box"> 
+  <include file="RaccoonBot_S.xml"/>
+
+  <statistic center="0.0 0 0.2" extent="0.5"/>
+
+  <visual>
+    <headlight diffuse="0.6 0.6 0.6" ambient="0.1 0.1 0.1" specular="0 0 0"/>
+    <rgba haze="0.15 0.25 0.35 1"/>
+    <global azimuth="120" elevation="-20"/>
+  </visual>
+
+  <asset>
+    <texture type="skybox" builtin="gradient" rgb1="0.3 0.5 0.7" rgb2="0 0 0" width="512" height="3072"/>
+    <texture type="2d" name="groundplane" builtin="checker" mark="edge"
+      rgb1="0.2 0.3 0.4" rgb2="0.1 0.2 0.3"
+      markrgb="0.8 0.8 0.8" width="300" height="300"/>
+    <material name="groundplane" texture="groundplane" texuniform="true" texrepeat="20 20" reflectance="0.0"/>
+  </asset>
+
+  <worldbody>
+    <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+    <geom name="floor" size="0.5 0.5 0.05" type="plane" material="groundplane"/>
+    <camera name="front_view" pos="0.0 0.50 0.13" xyaxes="-1 0 0 0 -0.18 0.98" fovy="45"/>
+
+    <!-- Red object: 기존 코드 호환을 위해 body name은 target_object 유지 -->
+    <body name="target_object" pos="-0.12 0.15 0.02">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="0.05" diaginertia="0.00000001 0.00000001 0.00000001"/>
+      <geom name="geom_red" type="cylinder" size="0.0075 0.01"
+        rgba="1 0 0 1"
+        friction="1 1 1" condim="6"
+        solimp="0.99 0.99 0.001" solref="0.002 1"/>
+    </body>
+
+    <!-- Blue object -->
+    <body name="target_object_blue" pos="-0.04 0.15 0.02">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="0.05" diaginertia="0.00000001 0.00000001 0.00000001"/>
+      <geom name="geom_blue" type="cylinder" size="0.0075 0.01"
+        rgba="0 0 1 1"
+        friction="1 1 1" condim="6"
+        solimp="0.99 0.99 0.001" solref="0.002 1"/>
+    </body>
+
+    <!-- Yellow object -->
+    <body name="target_object_yellow" pos="0.04 0.15 0.02">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="0.05" diaginertia="0.00000001 0.00000001 0.00000001"/>
+      <geom name="geom_yellow" type="cylinder" size="0.0075 0.01"
+        rgba="1 1 0 1"
+        friction="1 1 1" condim="6"
+        solimp="0.99 0.99 0.001" solref="0.002 1"/>
+    </body>
+
+    <!-- Green object -->
+    <body name="target_object_green" pos="0.12 0.15 0.02">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="0.05" diaginertia="0.00000001 0.00000001 0.00000001"/>
+      <geom name="geom_green" type="cylinder" size="0.0075 0.01"
+        rgba="0 1 0 1"
+        friction="1 1 1" condim="6"
+        solimp="0.99 0.99 0.001" solref="0.002 1"/>
+        </body>
+
+    <body name="target_object_white_cube" pos="0.14 0.0 0.02">
+      <freejoint/>
+      <inertial pos="0 0 0" mass="0.05" diaginertia="0.00000001 0.00000001 0.00000001"/>
+      <geom name="geom_white_cube" type="box" size="0.01 0.01 0.01"
+        rgba="1 1 1 1"
+        friction="1 1 1" condim="6"
+        solimp="0.99 0.99 0.001" solref="0.002 1"/>
+    </body>
+
+  </worldbody>
+</mujoco>
